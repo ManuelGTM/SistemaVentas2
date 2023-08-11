@@ -1,0 +1,10 @@
+C:\Users\MT\workbench\repos\MiProyecto\Ventas\Capa Datos\bin\Debug\Database1.mdf
+C:\Users\MT\workbench\repos\MiProyecto\Ventas\Capa Datos\bin\Debug\Database1_log.ldf
+C:\Users\MT\workbench\repos\MiProyecto\Ventas\Capa Datos\bin\Debug\Capa Datos.dll
+C:\Users\MT\workbench\repos\MiProyecto\Ventas\Capa Datos\bin\Debug\Capa Datos.pdb
+C:\Users\MT\workbench\repos\MiProyecto\Ventas\Capa Datos\obj\Debug\Capa Datos.csproj.AssemblyReference.cache
+C:\Users\MT\workbench\repos\MiProyecto\Ventas\Capa Datos\obj\Debug\Capa Datos.csproj.CoreCompileInputs.cache
+C:\Users\MT\workbench\repos\MiProyecto\Ventas\Capa Datos\obj\Debug\Capa Datos.dll
+C:\Users\MT\workbench\repos\MiProyecto\Ventas\Capa Datos\obj\Debug\Capa Datos.pdb
+C:\Users\MT\workbench\repos\MiProyecto\Ventas\Capa Datos\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\MT\workbench\repos\MiProyecto\Ventas\Capa Datos\obj\Debug\Capa Datos.csproj.CopyComplete

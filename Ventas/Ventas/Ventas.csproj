@@ -59,6 +59,12 @@
     <Compile Include="COProducto.designer.cs">
       <DependentUpon>COProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dash.designer.cs">
+      <DependentUpon>Dash.cs</DependentUpon>
+    </Compile>
     <Compile Include="FCOCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     <None Include="Resources\LogoVentasN1.png" />
     <EmbeddedResource Include="COProducto.resx">
       <DependentUpon>COProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dash.resx">
+      <DependentUpon>Dash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FCOCliente.resx">
       <DependentUpon>FCOCliente.cs</DependentUpon>

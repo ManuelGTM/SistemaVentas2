@@ -20,20 +20,20 @@ namespace CapaDatos
         private string nombreProducto;
         private int existencia;
         private double precio;
-        private int marca;
+        private int id_marca;
         private string Estado;
      
         public CDProducto()
         {
         }
 
-        public CDProducto(int IdProducto, string nombreProducto, int existencia, double precio, int Marca, string Estado)
+        public CDProducto(int IdProducto, string nombreProducto, int existencia, double precio, int Id_Marca, string Estado)
         {
             this.IdProducto = IdProducto;
             this.nombreProducto = nombreProducto;
             this.existencia = existencia;
             this.precio = precio;
-            this.marca = Marca;
+            this.id_marca = Id_Marca;
             this.Estado = Estado;
 
         }
@@ -43,7 +43,7 @@ namespace CapaDatos
         public string _nombreProducto { get => nombreProducto; set => nombreProducto = value; }
         public int _existencia { get => existencia; set => existencia = value; }
         public double _precio { get => precio; set => precio = value; }
-        public int _marca { get => marca; set => marca = value; }
+        public int _Id_marca { get => id_marca; set => id_marca = value; }
         public string _Estado { get => Estado; set => Estado = value; }
 
 
@@ -57,7 +57,7 @@ namespace CapaDatos
             try
             {
                 sqlCon.ConnectionString = Sistema_Conexion.miconexion;
-                SqlCommand micomando = new SqlCommand("MarcaInsertar", sqlCon);
+                SqlCommand micomando = new SqlCommand("ProductoInsertar", sqlCon);
                 sqlCon.Open();
                 micomando.CommandType = CommandType.StoredProcedure;
 
@@ -65,7 +65,7 @@ namespace CapaDatos
                 micomando.Parameters.AddWithValue("@pnombreProducto", objProducto._nombreProducto);
                 micomando.Parameters.AddWithValue("@pexistencia", objProducto._existencia);
                 micomando.Parameters.AddWithValue("@pPrecio", objProducto._precio);
-                micomando.Parameters.AddWithValue("@pmarca", objProducto._marca);
+                micomando.Parameters.AddWithValue("@pid_marca", objProducto._Id_marca);
                 micomando.Parameters.AddWithValue("@pEstado", objProducto._Estado);
 
                 mensaje = micomando.ExecuteNonQuery() == 1 ? "Insercion de datos completada correctamente"
@@ -99,7 +99,7 @@ namespace CapaDatos
             try
             {
                 sqlCon.ConnectionString = Sistema_Conexion.miconexion;
-                SqlCommand micomando = new SqlCommand("MarcaActualizar", sqlCon);
+                SqlCommand micomando = new SqlCommand("ProductoActualizar", sqlCon);
                 sqlCon.Open();
                 micomando.CommandType = CommandType.StoredProcedure;
 
@@ -107,7 +107,7 @@ namespace CapaDatos
                 micomando.Parameters.AddWithValue("@pnombreProducto", objProducto._nombreProducto);
                 micomando.Parameters.AddWithValue("@pexistencia", objProducto._existencia);
                 micomando.Parameters.AddWithValue("@pPrecio", objProducto._precio);
-                micomando.Parameters.AddWithValue("@pmarca", objProducto._marca);
+                micomando.Parameters.AddWithValue("@pid_marca", objProducto._Id_marca);
                 micomando.Parameters.AddWithValue("@pEstado", objProducto._Estado);
 
                 mensaje = micomando.ExecuteNonQuery() == 1 ? "Los datos han sido actualizados correctamente"
@@ -127,7 +127,7 @@ namespace CapaDatos
 
             }
 
-            return $"{mensaje}";
+            return mensaje;
         }
 
 

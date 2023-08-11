@@ -37,7 +37,7 @@ namespace Control_Ventas
         {
             valorparametro = "";
             vtieneparametro = 0;
-            Program.vidCliente = 0;
+            Program.vidProducto = 0;
             MostrarDatos();
             tbBuscar.Focus();
         }
@@ -60,7 +60,18 @@ namespace Control_Ventas
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-
+            if (tbBuscar.Text != String.Empty)
+            {
+                vtieneparametro = 1;
+                valorparametro = "%" + tbBuscar.Text.Trim() + "%";
+            }
+            else
+            {
+                vtieneparametro = 0;
+                valorparametro = "";
+            }
+            MostrarDatos();
+            tbBuscar.Focus();
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -79,19 +90,31 @@ namespace Control_Ventas
 
         private void BtnSiguiente_Click(object sender, EventArgs e)
         {
+
+            if (indice < this.DGVDatos.RowCount - 1)
+            {
+                indice++;
+                DGVDatos.CurrentCell = DGVDatos.CurrentCell = DGVDatos.Rows[indice].Cells[DGVDatos.CurrentCell.ColumnIndex];
+            }
+
+        }
+
+        private void BtnUltimo_Click(object sender, EventArgs e)
+        {
             if (indice < this.DGVDatos.RowCount - 1)
             {
                 indice = DGVDatos.Rows.Count - 1;
                 DGVDatos.CurrentCell = DGVDatos.CurrentCell = DGVDatos.Rows[indice].Cells[DGVDatos.CurrentCell.ColumnIndex];
             }
-        }
-
-        private void BtnUltimo_Click(object sender, EventArgs e)
-        {
 
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DGVDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -117,8 +140,7 @@ namespace Control_Ventas
                 DGVDatos.Columns[2].Width = 150; // id_cliente
                 DGVDatos.Columns[3].Width = 150; // id_empleado
                 DGVDatos.Columns[4].Width = 150; // observacion
-                DGVDatos.Columns[5].Width = 150; // pais
-                DGVDatos.Columns[6].Width = 80;  // Estado
+                DGVDatos.Columns[5].Width = 80; // pais
             }
             else
             {

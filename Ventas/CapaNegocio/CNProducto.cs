@@ -21,7 +21,7 @@ namespace CapaNegocio
             objProducto._nombreProducto = nombreProducto;
             objProducto._existencia = existencia;
             objProducto._precio = precio;
-            objProducto._marca = Marca;
+            objProducto._Id_marca = Marca;
             objProducto._Estado = Estado;
 
             return objProducto.ProductoInsertar(objProducto);
@@ -36,7 +36,7 @@ namespace CapaNegocio
             objProducto._nombreProducto = nombreProducto;
             objProducto._existencia = existencia;
             objProducto._precio = precio;
-            objProducto._marca = Marca;
+            objProducto._Id_marca = Marca;
             objProducto._Estado = Estado;
 
             return objProducto.ProductoActualizar(objProducto);
@@ -51,10 +51,6 @@ namespace CapaNegocio
 
             return dt;
         }
-
-
-
-
 
     }
 }

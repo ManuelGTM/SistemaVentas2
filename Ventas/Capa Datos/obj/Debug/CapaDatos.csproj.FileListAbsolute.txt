@@ -18,3 +18,13 @@ C:\Users\MT\workbench\Miproyecto\Ventas\SistemaVentas2\Ventas\Capa Datos\obj\Deb
 C:\Users\MT\workbench\Miproyecto\Ventas\SistemaVentas2\Ventas\Capa Datos\obj\Debug\CapaDatos.csproj.CopyComplete
 C:\Users\MT\workbench\Miproyecto\Ventas\SistemaVentas2\Ventas\Capa Datos\obj\Debug\CapaDatos.dll
 C:\Users\MT\workbench\Miproyecto\Ventas\SistemaVentas2\Ventas\Capa Datos\obj\Debug\CapaDatos.pdb
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Capa Datos\bin\Debug\Database1.mdf
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Capa Datos\bin\Debug\Database1_log.ldf
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Capa Datos\bin\Debug\CapaDatos.dll
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Capa Datos\bin\Debug\CapaDatos.pdb
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Capa Datos\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Capa Datos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Capa Datos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Capa Datos\obj\Debug\CapaDatos.csproj.CopyComplete
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Capa Datos\obj\Debug\CapaDatos.dll
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Capa Datos\obj\Debug\CapaDatos.pdb

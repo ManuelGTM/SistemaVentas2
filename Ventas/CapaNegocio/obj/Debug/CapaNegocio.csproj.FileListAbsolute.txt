@@ -22,3 +22,15 @@ C:\Users\MT\workbench\Miproyecto\Ventas\SistemaVentas2\Ventas\CapaNegocio\obj\De
 C:\Users\MT\workbench\Miproyecto\Ventas\SistemaVentas2\Ventas\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
 C:\Users\MT\workbench\Miproyecto\Ventas\SistemaVentas2\Ventas\CapaNegocio\obj\Debug\CapaNegocio.dll
 C:\Users\MT\workbench\Miproyecto\Ventas\SistemaVentas2\Ventas\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\CapaNegocio\bin\Debug\Database1.mdf
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\CapaNegocio\bin\Debug\Database1_log.ldf
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\CapaNegocio\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\CapaNegocio\obj\Debug\CapaNegocio.pdb

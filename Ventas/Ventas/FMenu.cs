@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using CapaNegocio;
+using Ventas;
 
 
 namespace Control_Ventas
@@ -130,7 +131,7 @@ namespace Control_Ventas
         private void iconButton4_Click(object sender, EventArgs e)
         {
 
-            ActivateButton(sender, RGBColors.color4);
+           ActivateButton(sender, RGBColors.color4);
             OpenChildForm(new COProducto());
             lblTitleChildForm.Text = "Productos";
         }

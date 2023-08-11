@@ -14,9 +14,8 @@ namespace Ventas
         public static int vidPedido = 0;
         public static int vidCliente = 0;
         public static int vidProducto = 0;
-        public static bool modificar = false;
-        public static bool nuevo = false;
-        /// <summary>
+
+             /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]

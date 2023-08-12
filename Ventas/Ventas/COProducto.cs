@@ -119,6 +119,38 @@ namespace Control_Ventas
 
         }
 
+        private void BtnImprimir_Click(object sender, EventArgs e)
+        {
+            ReporteProducto(DGVDatos);
+        }
+
+        public void ReporteProducto(DataGridView tabla)
+        {
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+
+            excel.Application.Workbooks.Add(true);
+            int IndiceColumna = 0;
+            Console.WriteLine("Reporte de Productos");
+            foreach (DataGridViewColumn columna in tabla.Columns)
+            {
+                IndiceColumna++;
+                excel.Cells[1, IndiceColumna] = columna.Name;
+            }
+            int IndiceFila = 0;
+            foreach (DataGridViewRow row in tabla.Rows)
+            {
+                IndiceFila++;
+                IndiceColumna = 0;
+                foreach (DataGridViewColumn columna in tabla.Columns)
+                {
+                    IndiceColumna++;
+                    excel.Cells[IndiceFila + 1, IndiceColumna] = row.Cells[columna.Name].Value;
+                }
+            }
+            excel.Visible = true;
+            
+        }
+
         private void BtnPrimero_Click(object sender, EventArgs e)
         {
             if (indice > 0)

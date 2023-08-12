@@ -137,6 +137,7 @@
             this.BtnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnImprimir.UseVisualStyleBackColor = true;
+            this.BtnImprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
             // 
             // BtnSalir
             // 

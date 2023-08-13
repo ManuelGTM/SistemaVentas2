@@ -1,15 +1,20 @@
 ﻿using CapaNegocio;
+//using DocumentFormat.OpenXml.Wordprocessing;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.util;
 using System.Windows.Forms;
 using Ventas;
-
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
 namespace Control_Ventas
 {
     public partial class FCOCliente : Form
@@ -104,6 +109,66 @@ namespace Control_Ventas
                 e.Cancel = true;*/
         }
 
+        private void BtnImprimir_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                string Texto_Html = Ventas.Properties.Resources.PlantillaCliente.ToString();
+                string filas = string.Empty;
+                foreach (DataGridViewRow row in DGVDatos.Rows)
+                {
+                    filas += "<tr>";
+                    filas += "<td>" + row.Cells["id_cliente"].Value.ToString() + "</td>";
+                    filas += "<td>" + row.Cells["nombre"].Value.ToString() + "</td>";
+                    filas += "<td>" + row.Cells["apellido"].Value.ToString() + "</td>";
+                    filas += "<td>" + row.Cells["telefono"].Value.ToString() + "</td>";
+                    filas += "<td>" + row.Cells["ciudad"].Value.ToString() + "</td>";
+                    filas += "<td>" + row.Cells["pais"].Value.ToString() + "</td>";
+                    filas += "<td>" + row.Cells["Estado"].Value.ToString() + "</td>";
+                    filas += "</tr>";
+
+                }
+
+                Texto_Html = Texto_Html.Replace("@fecharegistro", DateTime.Now.ToString("dd/mm/yyyy"));
+                Texto_Html = Texto_Html.Replace("@filas", filas);
+
+                SaveFileDialog saveFile = new SaveFileDialog();
+                saveFile.FileName = string.Format("ReporteCliente{0}.pdf", DateTime.Now.ToString("dd/MM/yyyy"));
+                saveFile.Filter = "Pdf Files|*.pdf";
+
+                if (saveFile.ShowDialog() == DialogResult.OK)
+                {
+                    using (FileStream stream = new FileStream(saveFile.FileName, FileMode.Create))
+                    {
+                        Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+
+                        PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                        pdfDoc.Open();
+
+
+                        using (StringReader sr = new StringReader(Texto_Html))
+                        {
+                            XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                        }
+
+                        pdfDoc.Close();
+                        stream.Close();
+                        MessageBox.Show("Documento generado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+
+
+        }
+       
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -115,13 +180,13 @@ namespace Control_Ventas
             if (objCliente.ObtenerCliente(valorparametro) != null)
             {
                 DGVDatos.DataSource = objCliente.ObtenerCliente(valorparametro);
-                DGVDatos.Columns[0].Width = 80;  // id_pedido
-                DGVDatos.Columns[1].Width = 150; // fecha_pedido
-                DGVDatos.Columns[2].Width = 150; // id_cliente
-                DGVDatos.Columns[3].Width = 150; // id_empleado
-                DGVDatos.Columns[4].Width = 150; // observacion
-                DGVDatos.Columns[5].Width = 150; // pais
-                DGVDatos.Columns[6].Width = 80;  // Estado
+                DGVDatos.Columns["id_cliente"].Width = 80;  // id_pedido
+                DGVDatos.Columns["nombre"].Width = 150; // fecha_pedido
+                DGVDatos.Columns["apellido"].Width = 150; // id_cliente
+                DGVDatos.Columns["telefono"].Width = 150; // id_empleado
+                DGVDatos.Columns["ciudad"].Width = 150; // observacion
+                DGVDatos.Columns["pais"].Width = 150; // pais
+                DGVDatos.Columns["Estado"].Width = 80;  // Estado
             }
             else
             {

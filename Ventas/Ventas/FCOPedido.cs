@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
 using Ventas;
 
 namespace Control_Ventas
@@ -102,6 +106,58 @@ namespace Control_Ventas
             }
         }
 
+        private void BtnImprimir_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                string Texto_Html = Ventas.Properties.Resources.ReportePedido.ToString();
+                string filas = string.Empty;
+                foreach (DataGridViewRow row in DGVDatos.Rows)
+                {
+                    filas += "<tr>";
+                    filas += "<td>" + row.Cells["id_pedido"].Value.ToString() + "</td>";
+                    filas += "<td>" + row.Cells["fecha_pedido"].Value.ToString() + "</td>";
+                    filas += "<td>" + row.Cells[2].Value.ToString() + "</td>";
+                    filas += "</tr>";
+                }
+
+                Texto_Html = Texto_Html.Replace("@fecharegistro", DateTime.Now.ToString("dd/MM/yyyy"));
+                Texto_Html = Texto_Html.Replace("@filas", filas);
+
+                SaveFileDialog saveFile = new SaveFileDialog();
+                saveFile.FileName = string.Format("ReportePedido_{0}.pdf", DateTime.Now.ToString("ddMMyyyy"));
+                saveFile.Filter = "Pdf Files|*.pdf";
+
+                if (saveFile.ShowDialog() == DialogResult.OK)
+                {
+                    using (FileStream stream = new FileStream(saveFile.FileName, FileMode.Create))
+                    {
+                        Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+
+                        PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                        pdfDoc.Open();
+
+
+                        using (StringReader sr = new StringReader(Texto_Html))
+                        {
+                            XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                        }
+
+                        pdfDoc.Close();
+                        stream.Close();
+                        MessageBox.Show("Documento generado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+     
         private void FCOPedido_Load(object sender, EventArgs e)
         {
             valorparametro = "";
@@ -117,12 +173,12 @@ namespace Control_Ventas
             if(objPedido.ObtenerPedido(valorparametro) != null)
             {
                 DGVDatos.DataSource = objPedido.ObtenerPedido(valorparametro);
-                DGVDatos.Columns[0].Width = 80;  // id_pedido
-                DGVDatos.Columns[1].Width = 200; // fecha_pedido
+                DGVDatos.Columns["id_pedido"].Width = 80;  // id_pedido
+                DGVDatos.Columns["fecha_pedido"].Width = 200; // fecha_pedido
                 DGVDatos.Columns[2].Width = 200; // id_cliente
                 DGVDatos.Columns[3].Width = 200; // id_empleado
-                DGVDatos.Columns[4].Width = 200; // observacion
-                DGVDatos.Columns[5].Width = 80;  // Estado
+                DGVDatos.Columns["observacion"].Width = 200; // observacion
+                DGVDatos.Columns["Estado"].Width = 80;  // Estado
             }
             else
             {

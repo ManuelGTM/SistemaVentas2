@@ -156,6 +156,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\ReportePedido.html" />
+    <None Include="Resources\ReporteProducto.html" />
+    <None Include="Resources\PlantillaProducto.html" />
+    <None Include="Resources\PlantillaCompra.html" />
+    <None Include="Resources\PlantillaCliente.html" />
+    <None Include="Resources\Plantilla.bmp" />
     <None Include="Resources\LogoVentasN#1.png" />
     <None Include="Resources\LogoVentasN1.png" />
     <EmbeddedResource Include="COProducto.resx">

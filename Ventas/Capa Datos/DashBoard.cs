@@ -50,7 +50,7 @@ namespace Capa_Datos
                 sqlCon.Open();
                 micomando.CommandType = CommandType.StoredProcedure;
 
-                micomando.CommandText = "select count(id_cliente) from Cliente";
+                micomando.CommandText = "select count(id_cliente) as CantCliente from Cliente";
                 NumCustomers = (int) micomando.ExecuteScalar();
 
 
@@ -71,6 +71,7 @@ namespace Capa_Datos
 
         public bool LoadData(DateTime startDate, DateTime endDate)
         {
+            GetNumberItems();
             endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day,
                 endDate.Hour, endDate.Minute, 59);
             if(startDate != this.startDate || endDate != this.endDate)
@@ -79,7 +80,7 @@ namespace Capa_Datos
                 this.endDate = endDate;
                 this.numberDays = (endDate - startDate).Days;
 
-                GetNumberItems();
+              //  GetNumberItems();
                 Console.WriteLine("Refreshed data : {0} - {1}", startDate.ToString(), endDate.ToString());
                 return true;
             }

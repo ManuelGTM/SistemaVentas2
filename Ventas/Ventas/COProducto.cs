@@ -1,14 +1,20 @@
 ﻿using CapaNegocio;
+//using DocumentFormat.OpenXml.Wordprocessing;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.util;
 using System.Windows.Forms;
 using Ventas;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
 
 namespace Control_Ventas
 {
@@ -121,36 +127,57 @@ namespace Control_Ventas
 
         private void BtnImprimir_Click(object sender, EventArgs e)
         {
-            ReporteProducto(DGVDatos);
-        }
-
-        public void ReporteProducto(DataGridView tabla)
-        {
-            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
-
-            excel.Application.Workbooks.Add(true);
-            int IndiceColumna = 0;
-            Console.WriteLine("Reporte de Productos");
-            foreach (DataGridViewColumn columna in tabla.Columns)
+            try
             {
-                IndiceColumna++;
-                excel.Cells[1, IndiceColumna] = columna.Name;
-            }
-            int IndiceFila = 0;
-            foreach (DataGridViewRow row in tabla.Rows)
-            {
-                IndiceFila++;
-                IndiceColumna = 0;
-                foreach (DataGridViewColumn columna in tabla.Columns)
+                string Texto_Html = Ventas.Properties.Resources.ReporteProducto.ToString();
+                string filas = string.Empty;
+                foreach (DataGridViewRow row in DGVDatos.Rows)
                 {
-                    IndiceColumna++;
-                    excel.Cells[IndiceFila + 1, IndiceColumna] = row.Cells[columna.Name].Value;
+                    filas += "<tr>";
+                    filas += "<td>" + row.Cells["idProducto"].Value.ToString() + "</td>";
+                    filas += "<td>" + row.Cells["nombreProducto"].Value.ToString() + "</td>";
+                    filas += "<td>" + row.Cells["existencia"].Value.ToString() + "</td>";
+                    filas += "<td>" + row.Cells["precio"].Value.ToString() + "</td>";
+                    filas += "<td>" + row.Cells["nombreMarca"].Value.ToString() + "</td>";
+                    filas += "</tr>";
+                    
                 }
-            }
-            excel.Visible = true;
-            
-        }
 
+                Texto_Html = Texto_Html.Replace("@fecharegistro", DateTime.Now.ToString("dd/mm/yyyy"));
+                Texto_Html = Texto_Html.Replace("@filas", filas);
+
+                SaveFileDialog saveFile = new SaveFileDialog();
+                saveFile.FileName = string.Format("ReporteProducto_{0}.pdf",DateTime.Now.ToString("ddMMyyyy"));
+                saveFile.Filter = "Pdf Files|*.pdf";
+
+                if (saveFile.ShowDialog() == DialogResult.OK)
+                {
+                    using (FileStream stream = new FileStream(saveFile.FileName, FileMode.Create))
+                    {
+                        Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+
+                        PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                        pdfDoc.Open();
+
+
+                        using (StringReader sr = new StringReader(Texto_Html))
+                        {
+                            XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                        }
+
+                        pdfDoc.Close();
+                        stream.Close();
+                        MessageBox.Show("Documento generado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+       
         private void BtnPrimero_Click(object sender, EventArgs e)
         {
             if (indice > 0)
@@ -167,12 +194,12 @@ namespace Control_Ventas
             if (objProducto.ObtenerProducto(valorparametro) != null)
             {
                 DGVDatos.DataSource = objProducto.ObtenerProducto(valorparametro);
-                DGVDatos.Columns[0].Width = 80;  // id_pedido
-                DGVDatos.Columns[1].Width = 150; // fecha_pedido
-                DGVDatos.Columns[2].Width = 150; // id_cliente
-                DGVDatos.Columns[3].Width = 150; // id_empleado
-                DGVDatos.Columns[4].Width = 150; // observacion
-                DGVDatos.Columns[5].Width = 80; // pais
+                DGVDatos.Columns["IdProducto"].Width = 80;  // id_pedido
+                DGVDatos.Columns["nombreProducto"].Width = 150; // fecha_pedido
+                DGVDatos.Columns["existencia"].Width = 150; // fecha_pedido
+                DGVDatos.Columns["precio"].Width = 150; // id_cliente
+                DGVDatos.Columns["nombreMarca"].Width = 150; // id_empleado
+                DGVDatos.Columns["estado"].Width = 80; // observacion
             }
             else
             {

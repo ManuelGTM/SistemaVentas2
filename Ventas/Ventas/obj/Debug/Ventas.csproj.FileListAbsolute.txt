@@ -91,11 +91,11 @@ C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Ventas\obj\Debug\Ventas.cs
 C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Ventas\obj\Debug\Ventas.csproj.SuggestedBindingRedirects.cache
 C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Ventas\obj\Debug\Ventas.exe.config
 C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Ventas\obj\Debug\Control_Ventas.COProducto.resources
-C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Ventas\obj\Debug\Ventas.Dash.resources
 C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Ventas\obj\Debug\Control_Ventas.FCOCliente.resources
 C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Ventas\obj\Debug\Control_Ventas.FCOPedido.resources
 C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Ventas\obj\Debug\Ventas.FMantCliente.resources
 C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Ventas\obj\Debug\Control_Ventas.FMenu.resources
+C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Ventas\obj\Debug\Ventas.FDash.resources
 C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Ventas\obj\Debug\Ventas.Properties.Resources.resources
 C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Ventas\obj\Debug\Ventas.csproj.GenerateResource.cache
 C:\Users\rapto\Workbench\Ventas\SistemaVentas2\Ventas\Ventas\obj\Debug\Ventas.csproj.CoreCompileInputs.cache

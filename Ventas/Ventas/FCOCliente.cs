@@ -125,7 +125,6 @@ namespace Control_Ventas
                     filas += "<td>" + row.Cells["telefono"].Value.ToString() + "</td>";
                     filas += "<td>" + row.Cells["ciudad"].Value.ToString() + "</td>";
                     filas += "<td>" + row.Cells["pais"].Value.ToString() + "</td>";
-                    filas += "<td>" + row.Cells["Estado"].Value.ToString() + "</td>";
                     filas += "</tr>";
 
                 }
@@ -134,7 +133,7 @@ namespace Control_Ventas
                 Texto_Html = Texto_Html.Replace("@filas", filas);
 
                 SaveFileDialog saveFile = new SaveFileDialog();
-                saveFile.FileName = string.Format("ReporteCliente{0}.pdf", DateTime.Now.ToString("dd/MM/yyyy"));
+                saveFile.FileName = string.Format("ReporteCliente{0}.pdf", DateTime.Now.ToString("dd-MM-yyyy"));
                 saveFile.Filter = "Pdf Files|*.pdf";
 
                 if (saveFile.ShowDialog() == DialogResult.OK)
@@ -163,9 +162,6 @@ namespace Control_Ventas
             {
                 MessageBox.Show(ex.Message);
             }
-
-
-
 
         }
        

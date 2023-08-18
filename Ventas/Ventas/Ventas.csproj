@@ -118,12 +118,6 @@
     <Compile Include="COProducto.designer.cs">
       <DependentUpon>COProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dash.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dash.Designer.cs">
-      <DependentUpon>Dash.cs</DependentUpon>
-    </Compile>
     <Compile Include="FCOCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,21 +148,24 @@
     <Compile Include="FMenu.designer.cs">
       <DependentUpon>FMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FDash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDash.Designer.cs">
+      <DependentUpon>FDash.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\PlantillaCliente.html" />
     <None Include="Resources\ReportePedido.html" />
     <None Include="Resources\ReporteProducto.html" />
     <None Include="Resources\PlantillaProducto.html" />
     <None Include="Resources\PlantillaCompra.html" />
-    <None Include="Resources\PlantillaCliente.html" />
     <None Include="Resources\Plantilla.bmp" />
     <None Include="Resources\LogoVentasN#1.png" />
     <None Include="Resources\LogoVentasN1.png" />
     <EmbeddedResource Include="COProducto.resx">
       <DependentUpon>COProducto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dash.resx">
-      <DependentUpon>Dash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FCOCliente.resx">
       <DependentUpon>FCOCliente.cs</DependentUpon>
@@ -181,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FMenu.resx">
       <DependentUpon>FMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDash.resx">
+      <DependentUpon>FDash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
